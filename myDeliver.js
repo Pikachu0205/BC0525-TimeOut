@@ -163,7 +163,7 @@ function mesDeliver(recipient, data){
 	axios({
 		method: 'post',
 		//url: ipList[recipient].concat("/" + data.type),
-		url: 'http://' + awsUrlList[recipient].concat(":100/" + data.type),
+		url: 'http://' + awsUrlList[recipient].concat(":1000/" + data.type),
 		data: data
 	}).then(function(res){/*console.log(res);*/}).catch(function(err){/*console.log(err);*/});
 	

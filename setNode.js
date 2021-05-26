@@ -1,7 +1,6 @@
 //
 //node setNode.js t 6 200 300 400 5 6000 0
 //
-//node setNode.js t 6 100 150 200 6000 0 5
 
 express = require('express');
 app = express();
@@ -66,7 +65,7 @@ function node(){
 	
 	//var port = ID * 100 + 100;
 		//app.listen(port);
-	port = 100;
+	port = 1000;
 	app.listen(port);
 	
 	
