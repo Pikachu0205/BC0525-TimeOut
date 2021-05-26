@@ -19,7 +19,7 @@ function isCommit(voteCollection, start_TO3){	//data = voteCollection[]
 			//console.log("insert", commitBlock, "to DB");
 			
 			saveblock.push(height);	//紀錄已經commit了這個height的block
-			mgdb.insertOne(commitBlock);
+			//mgdb.insertOne(commitBlock);
 			lastBlockHash = commitBlock.messageHash;
 			
 			var synround = 0;
