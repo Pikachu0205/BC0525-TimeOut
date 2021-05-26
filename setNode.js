@@ -65,7 +65,7 @@ function node(){
 	
 	//var port = ID * 100 + 100;
 		//app.listen(port);
-	port = 1000;
+	port = 3000;
 	app.listen(port);
 	
 	
