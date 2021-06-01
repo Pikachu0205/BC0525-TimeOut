@@ -63,9 +63,9 @@ function node(){
 		coefficient = 2;
 	}
 	
-	var port = ID * 1000 + 1000;
+	//var port = ID * 1000 + 1000;
 		//app.listen(port);
-	//port = 3000;
+	port = 3000;
 	app.listen(port);
 	
 	
