@@ -159,11 +159,14 @@ function mesDeliver(recipient, data){
 	if(data.type == "fromAggregateVote")
 		data.start_TO3 = new Date().getTime();
 	
+	var www = 'http://' + awsUrlList[recipient].concat(":3000/" + data.type);
+	console.log("www : " + www);
 	
 	axios({
 		method: 'post',
 		//url: ipList[recipient].concat("/" + data.type),
-		url: 'http://' + awsUrlList[recipient].concat(":3000/" + data.type),
+		url: www,
+		//url: 'http://' + awsUrlList[recipient].concat(":3000/" + data.type),
 		data: data
 	}).then(function(res){/*console.log(res);*/}).catch(function(err){/*console.log(err);*/});
 	

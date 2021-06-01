@@ -93,11 +93,11 @@ function node(){
 				console.log("awsUrlList : " + awsUrlList);
 				
 				privateKey = ec.keyFromPrivate(readfile[member + 100 + ID]);
-				
+				console.log("privateKey : " + privateKey);
 				
 				for(i=0; i < member; i++)
 					publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
-				
+				console.log("publicKeyList : " + publicKeyList);
 				
 				myDeliver.ReadyDeliver(ID, 0);
 				myRecord.endRecordTime_Of();
