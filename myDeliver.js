@@ -159,7 +159,7 @@ function mesDeliver(recipient, data){
 	if(data.type == "fromAggregateVote")
 		data.start_TO3 = new Date().getTime();
 	
-	var www = awsUrlList[recipient].concat(":3000/" + data.type);
+	var www = 'http://' + awsUrlList[recipient].concat(":3000/" + data.type);
 	console.log("www : " + www);
 	
 	axios({
