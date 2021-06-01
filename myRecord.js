@@ -42,39 +42,15 @@ function endRecordTime_Of(){
 		
 		//console.log("要統計標準差了喔");
 		
-		//console.log("TO1_Buffer : " + TO1_Buffer);
-		//console.log("TO2_Buffer : " + TO2_Buffer);
-		//console.log("TO3_Buffer : " + TO3_Buffer);
+		console.log("TO1_Buffer : " + TO1_Buffer);
+		console.log("TO2_Buffer : " + TO2_Buffer);
+		console.log("TO3_Buffer : " + TO3_Buffer);
 		
 		stddev1 = stddevMean(TO1_Buffer);
 		stddev2 = stddevMean(TO2_Buffer);
 		stddev3 = stddevMean(TO3_Buffer);
 		
-		//console.log("TO1_Stddev : " + stddev1);
-		//console.log("TO2_Stddev : " + stddev2);
-		//console.log("TO3_Stddev : " + stddev3);
-		//stddev4 = stddevMean(TO4_Buffer);
 		
-		/*
-		console.log("TO1_Buffer : " + TO1_Buffer + "\nTO2_Buffer : " + TO2_Buffer + "\nTO3_Buffer : " + TO3_Buffer + "\nTO4_Buffer : " + TO4_Buffer);
-		console.log("stddev1 : " + stddev1);		console.log("stddev2 : " + stddev2);		console.log("stddev3 : " + stddev3);		console.log("stddev4 : " + stddev4);
-		*/
-		/*
-		var write = 
-			"TO1 : " + stddev1[0] + "\t\t" + stddev1[1] + "\t\t" + stddev1[2] + "\t\t" + stddev1[3] + "\t\t" + stddev1[4] + 
-			"\nTO2 : " + stddev2[0] + "\t\t" + stddev2[1] + "\t\t" + stddev2[2] + "\t\t" + stddev2[3] + "\t\t" + stddev2[4] + 
-			"\nTO3 : " + stddev3[0] + "\t\t" + stddev3[1] + "\t\t" + stddev3[2] + "\t\t" + stddev3[3] + "\t\t" + stddev3[4] + 
-			"\nTO4 : " + stddev4[0] + "\t\t" + stddev4[1] + "\t\t" + stddev4[2]	+ "\t\t" + stddev4[3] + "\t\t" + stddev4[4] + 
-			"\nthroughput : " + height + "\t\t" + (height*size[dataSize] / (testTime / 1000) ).toFixed(5);
-		*/
-		/*
-		var write = 
-			"TO1 : " + stddev1.toFixed(3) + 
-			"\nTO2 : " + stddev2.toFixed(3) + 
-			"\nTO3 : " + stddev3.toFixed(3) + 
-			//"\nTO4 : " + stddev4.toFixed(3) + 
-			"\nthroughput : " + height + "\t\t" + (height*size[dataSize] / (testTime / 1000) ).toFixed(5) + "\n";
-		*/
 		var write1 = stddev1.toFixed(3) + ",";
 		var write2 = stddev2.toFixed(3) + ",";
 		var write3 = stddev3.toFixed(3) + ",";
@@ -188,6 +164,8 @@ function roughSizeOfObject( object ) {
 function recordTime_Of_TO1(start_TO1){
 	var end_TO1 = new Date().getTime();
 	
+	console.log("第一個timeout");
+	
 	TO1_Buffer.push(end_TO1 - start_TO1);
 }
 
@@ -195,12 +173,16 @@ function recordTime_Of_TO1(start_TO1){
 function recordTime_Of_TO2(start_TO2){
 	var end_TO2 = new Date().getTime();
 	
+	console.log("第二個timeout");
+	
 	TO2_Buffer.push(end_TO2 - start_TO2);
 }
 
 
 function recordTime_Of_TO3(start_TO3){
 	var end_TO3 = new Date().getTime();
+	
+	console.log("第三個timeout");
 	
 	TO3_Buffer.push(end_TO3 - start_TO3);
 }
@@ -224,3 +206,29 @@ module.exports = {
 	recordTime_Of_Height,
 	roughSizeOfObject
 }
+
+//console.log("TO1_Stddev : " + stddev1);
+		//console.log("TO2_Stddev : " + stddev2);
+		//console.log("TO3_Stddev : " + stddev3);
+		//stddev4 = stddevMean(TO4_Buffer);
+		
+		/*
+		console.log("TO1_Buffer : " + TO1_Buffer + "\nTO2_Buffer : " + TO2_Buffer + "\nTO3_Buffer : " + TO3_Buffer + "\nTO4_Buffer : " + TO4_Buffer);
+		console.log("stddev1 : " + stddev1);		console.log("stddev2 : " + stddev2);		console.log("stddev3 : " + stddev3);		console.log("stddev4 : " + stddev4);
+		*/
+		/*
+		var write = 
+			"TO1 : " + stddev1[0] + "\t\t" + stddev1[1] + "\t\t" + stddev1[2] + "\t\t" + stddev1[3] + "\t\t" + stddev1[4] + 
+			"\nTO2 : " + stddev2[0] + "\t\t" + stddev2[1] + "\t\t" + stddev2[2] + "\t\t" + stddev2[3] + "\t\t" + stddev2[4] + 
+			"\nTO3 : " + stddev3[0] + "\t\t" + stddev3[1] + "\t\t" + stddev3[2] + "\t\t" + stddev3[3] + "\t\t" + stddev3[4] + 
+			"\nTO4 : " + stddev4[0] + "\t\t" + stddev4[1] + "\t\t" + stddev4[2]	+ "\t\t" + stddev4[3] + "\t\t" + stddev4[4] + 
+			"\nthroughput : " + height + "\t\t" + (height*size[dataSize] / (testTime / 1000) ).toFixed(5);
+		*/
+		/*
+		var write = 
+			"TO1 : " + stddev1.toFixed(3) + 
+			"\nTO2 : " + stddev2.toFixed(3) + 
+			"\nTO3 : " + stddev3.toFixed(3) + 
+			//"\nTO4 : " + stddev4.toFixed(3) + 
+			"\nthroughput : " + height + "\t\t" + (height*size[dataSize] / (testTime / 1000) ).toFixed(5) + "\n";
+		*/

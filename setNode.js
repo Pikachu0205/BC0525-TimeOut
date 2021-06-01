@@ -63,9 +63,9 @@ function node(){
 		coefficient = 2;
 	}
 	
-	//var port = ID * 100 + 100;
+	var port = ID * 1000 + 1000;
 		//app.listen(port);
-	port = 3000;
+	//port = 3000;
 	app.listen(port);
 	
 	
@@ -87,22 +87,17 @@ function node(){
 				
 				
 				for(i=0; i < member; i++)
-					awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
-					//ipList[i] = readfile[i].replace(/[\r\n]/g,"");
-				
-				console.log("awsUrlList : " + awsUrlList);
+					//awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
+					ipList[i] = readfile[i].replace(/[\r\n]/g,"");
 				
 				privateKey = ec.keyFromPrivate( readfile[member + 100 + ID].replace(/[\r\n]/g,"") );
-				console.log("privateKey : " + privateKey);
 				
 				for(i=0; i < member; i++)
 					publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
-				console.log("publicKeyList : " + publicKeyList);
 				
 				myDeliver.ReadyDeliver(ID, 0);
 				myRecord.endRecordTime_Of();
-					
-					
+				
 			});
 			
 		});
