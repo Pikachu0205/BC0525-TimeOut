@@ -92,7 +92,7 @@ function node(){
 				
 				console.log("awsUrlList : " + awsUrlList);
 				
-				privateKey = ec.keyFromPrivate(readfile[member + 100 + ID]);
+				privateKey = ec.keyFromPrivate(readfile[member + 100 + ID].replace(/[\r\n]/g,"");
 				console.log("privateKey : " + privateKey);
 				
 				for(i=0; i < member; i++)
