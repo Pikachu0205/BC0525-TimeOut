@@ -90,6 +90,7 @@ function node(){
 					awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
 					//ipList[i] = readfile[i].replace(/[\r\n]/g,"");
 				
+				console.log("awsUrlList : " + awsUrlList);
 				
 				privateKey = ec.keyFromPrivate(readfile[member + 100 + ID]);
 				
