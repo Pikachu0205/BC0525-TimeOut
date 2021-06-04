@@ -72,6 +72,26 @@ function node(){
 	
 	
 	
+	fs.readFile('key&url.txt', function(err, data) {
+		if (err) return console.log(err);
+		
+		readfile = data.toString().split('\n');
+		
+		
+		for(i=0; i < member; i++)
+			//awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
+			ipList[i] = readfile[i].replace(/[\r\n]/g,"");
+			
+		privateKey = ec.keyFromPrivate( readfile[member + 100 + ID].replace(/[\r\n]/g,"") );
+				
+		for(i=0; i < member; i++)
+			publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
+				
+		myDeliver.ReadyDeliver(ID, 0);
+		myRecord.endRecordTime_Of();
+				
+	});
+	/*
 	MongoClient.connect("mongodb://localhost:27017/YourDB", {useNewUrlParser: true,useUnifiedTopology: true}, (err, client) => {
 		if (err) return console.log(err);
 		
@@ -103,6 +123,6 @@ function node(){
 		});
 		
 	});
-	
+	*/
 	
 }

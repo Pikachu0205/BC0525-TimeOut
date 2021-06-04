@@ -2,13 +2,15 @@ app.post('/SynReq', function(req, res){
 	if(postProcess.customVerify(req.body, 0)){
 		postProcess.display(req.body);
 		
+		/*
 		mgdb.find({
 			
 			height:{
 				"$gte": req.body.height,
 				"$lt": req.body.rH
 			}
-			
+		*/
+		
 		}).toArray(function(err,items){
 			if(err) throw err;
 			//myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH, items, VDF);
@@ -38,7 +40,7 @@ app.post('/SynRes', function(req, res) {
 					saveblock.push(req.body.items[j].height);
 					lastBlockHash = req.body.items[j].blockHash;
 					//console.log("~~~~~Commit the syn block~~~~~");
-					mgdb.insertOne(verifyblock);
+					//mgdb.insertOne(verifyblock);
 				}
 				
 			}
@@ -104,7 +106,7 @@ app.post('/Vote', function(req, res) {
 				//console.log("insert", commitBlock, "to DB");
 				
 				saveblock.push(req.body.height);
-				mgdb.insertOne(commitBlock);
+				//mgdb.insertOne(commitBlock);
 				lastBlockHash = commitBlock.blockHash;
 				//console.log(commitBlock.blockHash);
 				//console.log(thisLockset);
