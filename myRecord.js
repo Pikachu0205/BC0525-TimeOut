@@ -164,7 +164,7 @@ function roughSizeOfObject( object ) {
 function recordTime_Of_TO1(start_TO1){
 	var end_TO1 = new Date().getTime();
 	
-	console.log("第一個timeout");
+	//console.log("第一個timeout");
 	
 	TO1_Buffer.push(end_TO1 - start_TO1);
 }
@@ -173,7 +173,7 @@ function recordTime_Of_TO1(start_TO1){
 function recordTime_Of_TO2(start_TO2){
 	var end_TO2 = new Date().getTime();
 	
-	console.log("第二個timeout");
+	//console.log("第二個timeout");
 	
 	TO2_Buffer.push(end_TO2 - start_TO2);
 }
@@ -182,7 +182,7 @@ function recordTime_Of_TO2(start_TO2){
 function recordTime_Of_TO3(start_TO3){
 	var end_TO3 = new Date().getTime();
 	
-	console.log("第三個timeout");
+	//console.log("第三個timeout");
 	
 	TO3_Buffer.push(end_TO3 - start_TO3);
 }
