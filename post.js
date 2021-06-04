@@ -9,13 +9,14 @@ app.post('/SynReq', function(req, res){
 				"$gte": req.body.height,
 				"$lt": req.body.rH
 			}
-		*/
 		
 		}).toArray(function(err,items){
 			if(err) throw err;
 			//myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH, items, VDF);
 			myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH, items);
 		});
+		*/
+		
 	}
 	
 	res.end();
