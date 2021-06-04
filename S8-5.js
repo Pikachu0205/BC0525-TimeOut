@@ -12,7 +12,7 @@ postProcess = require("./postProcess.js");
 	
 app.post('/Block', function(req, res) {
 	
-	console.log("收到block");
+	//console.log("收到block");
 	myRecord.recordTime_Of_TO1(req.body.start_TO1);
 	//DataSize1.push( Object.keys(req.body) );
 	//DataSize1.push( myRecord.roughSizeOfObject(req.body) );
@@ -37,7 +37,7 @@ app.post('/Block', function(req, res) {
 app.post('/toAggregateVote', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		console.log("AGG收到民眾投票");
+		//console.log("AGG收到民眾投票");
 		
 		myRecord.recordTime_Of_TO2(req.body.start_TO2);
 		thisLockset.push(req.body);		//將票存到lockset
@@ -51,7 +51,7 @@ app.post('/toAggregateVote', function(req, res) {
 app.post('/fromAggregateVote', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		console.log("收到AGG整理好的投票");
+		//console.log("收到AGG整理好的投票");
 		
 		myRecord.recordTime_Of_TO3(req.body.start_TO3);
 		postProcess.isCommit(req.body.voteCollection, req.body.start_TO3);
@@ -66,7 +66,7 @@ app.post('/Ready', function(req, res) {
 	//if(postProcess.customVerify(req.body, 0)){
 		var startRound = -1;
 		
-		console.log("=== 收到ready ===");
+		//console.log("=== 收到ready ===");
 		
 		if(ID == 0){
 			readyMem++;
