@@ -15,7 +15,7 @@ app.post('/Block', function(req, res) {
 	//console.log("收到block");
 	myRecord.recordTime_Of_TO1(req.body.start_TO1);
 	//DataSize1.push( Object.keys(req.body) );
-	//DataSize1.push( myRecord.roughSizeOfObject(req.body) );
+	//DataSize1.push( postProcess.roughSizeOfObject(req.body) );
 	
 	
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
@@ -41,7 +41,7 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		myRecord.recordTime_Of_TO2(req.body.start_TO2);
 		thisLockset.push(req.body);		//將票存到lockset
-		//DataSize2.push( myRecord.roughSizeOfObject(req.body) );
+		//DataSize2.push( postProcess.roughSizeOfObject(req.body) );
 		
 	}
 	res.end();
@@ -55,7 +55,7 @@ app.post('/fromAggregateVote', function(req, res) {
 		
 		myRecord.recordTime_Of_TO3(req.body.start_TO3);
 		postProcess.isCommit(req.body.voteCollection, req.body.start_TO3);
-		//DataSize3.push( myRecord.roughSizeOfObject(req.body) );
+		//DataSize3.push( postProcess.roughSizeOfObject(req.body) );
 		
 	}
 	res.end();

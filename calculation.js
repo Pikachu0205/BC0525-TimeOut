@@ -67,17 +67,15 @@ TO1_stddev = [],TO2_stddev = [],TO3_stddev = [];
 		
 		s1 = [],s2 = [],s3 = [];
 		for(var i = 0; i < 6; i++){
-			s1.push( parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) );
-			s2.push( parseFloat (TO2[i]) + parseFloat (TO2_stddev[i]) + parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) );
-			s3.push( parseFloat (TO3[i]) + parseFloat (TO3_stddev[i]) + parseFloat (TO2[i]) + parseFloat (TO2_stddev[i]) + parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) );
+			s1.push( parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) * 3 );
+			s2.push( parseFloat (TO2[i]) + parseFloat (TO2_stddev[i]) * 3 + parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) * 3 );
+			s3.push( parseFloat (TO3[i]) + parseFloat (TO3_stddev[i]) * 3 + parseFloat (TO2[i]) + parseFloat (TO2_stddev[i]) * 3 + parseFloat (TO1[i]) + parseFloat (TO1_stddev[i]) * 3 );
 		}
 		
 		console.log(s1);
 		console.log(s2);
 		console.log(s3);
-		//591.337,	310.584,	185.640,	87.808,		41.92,	21.265
-		//598.912,	322.257,	203.152,	102.330,	53.464,	34.081
-		//610.461,	334.223,	215.791,	115.104,	64.613,	44.959
+		
 	});
 	
 	

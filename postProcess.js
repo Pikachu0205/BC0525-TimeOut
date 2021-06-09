@@ -27,13 +27,13 @@ function isCommit(voteCollection, start_TO3){	//data = voteCollection[]
 			//myRecord.recordTime_Of_TO3(start_TO3);
 			//start_TO4 = new Date().getTime();
 			
-			myMain.newHeight(synround);
+			//myMain.newHeight(synround);
 			
 		}
 		
 	}
 	
-	//myDeliver.ReadyDeliver(ID, 0);
+	myDeliver.ReadyDeliver(ID, 0);
 	
 }
 
@@ -102,6 +102,39 @@ function getArrDifference(arr1, arr2){	//找出兩個陣列不同的值
 }
 
 
+function roughSizeOfObject( object ) {
+
+    var objectList = [];
+    var stack = [ object ];
+    var bytes = 0;
+
+    while ( stack.length ) {
+        var value = stack.pop();
+
+        if ( typeof value === 'boolean' )
+            bytes += 4;
+        
+        else if ( typeof value === 'string' )
+            bytes += value.length * 2;
+        
+        else if ( typeof value === 'number' )
+            bytes += 8;
+        
+        else if ( typeof value === 'object' && objectList.indexOf( value ) === -1 ){
+            
+			objectList.push( value );
+
+            for( var i in value )
+                stack.push( value[ i ] );
+        }
+    }
+	
+	console.log(bytes);
+	
+    return bytes;
+}
+
+
 function display(item){		//show出app之間所傳的訊息
 		if(item.timeout != 1)
 			console.log(item.type, " height", item.height, " round", item.round, " sender", item.sender);
@@ -116,5 +149,6 @@ module.exports = {
 	legalVote,
 	getBlock,
 	getArrDifference,
+	roughSizeOfObject,
 	display
 }

@@ -13,10 +13,8 @@ DataSize2 = []
 DataSize3 = []
 
 
-var sum = function(x,y){
-	return x+y;};
-var square = function(x){
-	return x*x;};
+var sum = function(x,y){	return x + y;};
+var square = function(x){	return x * x;};
 
 fileName = "timeout" + args[8] + ".txt";
 
@@ -64,9 +62,9 @@ function endRecordTime_Of(){
 		fs.appendFile("TO2.txt", write2, function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO3.txt", write3, function (err) {	if(err)	console.log(err);	})
 		
-		//fs.appendFile("TO1_dot.txt", TO1_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
-		//fs.appendFile("TO2_dot.txt", TO2_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
-		//fs.appendFile("TO3_dot.txt", TO3_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
+		fs.appendFile("TO1_dot.txt", TO1_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
+		fs.appendFile("TO2_dot.txt", TO2_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
+		fs.appendFile("TO3_dot.txt", TO3_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		
 		//fs.appendFile("TO1_DS.txt", DataSize1 + "\n", function (err) {	if(err)	console.log(err);	})
 		//fs.appendFile("TO2_DS.txt", DataSize2 + "\n", function (err) {	if(err)	console.log(err);	})
@@ -128,39 +126,6 @@ function recordTime_Of_Height(){
 }
 
 
-function roughSizeOfObject( object ) {
-
-    var objectList = [];
-    var stack = [ object ];
-    var bytes = 0;
-
-    while ( stack.length ) {
-        var value = stack.pop();
-
-        if ( typeof value === 'boolean' )
-            bytes += 4;
-        
-        else if ( typeof value === 'string' )
-            bytes += value.length * 2;
-        
-        else if ( typeof value === 'number' )
-            bytes += 8;
-        
-        else if ( typeof value === 'object' && objectList.indexOf( value ) === -1 ){
-            
-			objectList.push( value );
-
-            for( var i in value )
-                stack.push( value[ i ] );
-        }
-    }
-	
-	console.log(bytes);
-	
-    return bytes;
-}
-
-
 function recordTime_Of_TO1(start_TO1){
 	var end_TO1 = new Date().getTime();
 	
@@ -203,8 +168,7 @@ module.exports = {
 	recordTime_Of_TO3,
 	recordTime_Of_TO4,
 	recoedThroughput,
-	recordTime_Of_Height,
-	roughSizeOfObject
+	recordTime_Of_Height
 }
 
 //console.log("TO1_Stddev : " + stddev1);
