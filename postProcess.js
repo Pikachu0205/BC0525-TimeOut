@@ -25,18 +25,15 @@ function isCommit(voteCollection, start_TO3){	//data = voteCollection[]
 			var synround = 0;
 			
 			//myRecord.recordTime_Of_TO3(start_TO3);
-			start_TO4 = new Date().getTime();
+			//start_TO4 = new Date().getTime();
 			
-			//myMain.newHeight(synround);
-			//myDeliver.ReadyDeliver(ID, 0);
+			myMain.newHeight(synround);
 			
 		}
 		
-		//myDeliver.ReadyDeliver(ID, 0);
-		
 	}
 	
-	myDeliver.ReadyDeliver(ID, 0);
+	//myDeliver.ReadyDeliver(ID, 0);
 	
 }
 

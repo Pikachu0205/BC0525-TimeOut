@@ -83,7 +83,7 @@ function node(){
 			ipList[i] = readfile[i].replace(/[\r\n]/g,"");
 			
 		privateKey = ec.keyFromPrivate( readfile[member + 100 + ID].replace(/[\r\n]/g,"") );
-				
+		
 		for(i=0; i < member; i++)
 			publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
 				

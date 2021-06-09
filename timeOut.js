@@ -19,8 +19,14 @@ function timeOutStart(){
 	
 	t3 = setTimeout(function(){	//等收票
 		var timeout = 1, synround = -1;
-		//(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
-		myDeliver.ReadyDeliver(ID, 0);
+		
+		//
+		(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
+		
+		//測timeout的
+		//myDeliver.ReadyDeliver(ID, 0);
+		
+		//學弟的
 		//(commitBlock) ? myProcedure.feedbackTransaction(synround) : newRound(timeout, synround);
 	},TO3);
 	

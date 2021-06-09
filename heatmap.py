@@ -17,7 +17,7 @@ data = {}
 
 import numpy as np
 
-filename = 'TO1.txt'
+filename = 'TOaws.txt'
 
 ele = []
 with open(filename) as file : 
@@ -56,7 +56,7 @@ ax = sns.heatmap(pd_data, annot=True, ax=ax, fmt='.2f', cmap=cmap) #ç”»heatmapï¼
 
 
 
-plt.title("Time Out 1 Manual",fontsize=30)
+plt.title("Time Out AWS",fontsize=30)
 #plt.title("Time Out 3",fontsize=30)
 
 
