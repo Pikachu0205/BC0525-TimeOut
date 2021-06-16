@@ -107,6 +107,8 @@ function recoedThroughput(){	//10min 600000	20min 1200000	30min 1800000	ihr 3600
 		
 		fs.appendFile('throughput2.txt', write2, function (err) {	if(err)	console.log(err);	})
 		
+	console.log(buffer1024[5]);
+	
 	},testTime);
 }
 

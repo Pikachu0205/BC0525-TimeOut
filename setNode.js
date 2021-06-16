@@ -76,7 +76,6 @@ function node(){
 		if (err) return console.log(err);
 		
 		readfile = data.toString().split('\n');
-		console.log(readfile);
 		
 		for(var i=0; i < member; i++)
 			//awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");

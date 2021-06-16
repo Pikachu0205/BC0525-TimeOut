@@ -42,19 +42,37 @@
 		TO3_stddev:		4.091	3.951	4.466	4.293	4.267	3.907
 	
 	2個標準差
+		35.384		58.382		75.308
 		67.282		89.52		106.774
 		103.318		126.032		144.684
 		217.120		240.76		260.163
 		393.385		416.337		435.876
 		761.49		782.537		801.306
 		
+		node setNode.js t 6 36 59 76 5 600000 0
+		node setNode.js t 6 68 90 107 4 600000 0
+		node setNode.js t 6 104 127 145 3 600000 0
+		node setNode.js t 6 218 241 261 2 600000 0
+		node setNode.js t 6 394 417 436 1 600000 0
+		node setNode.js t 6 762 783 802 0 600000 0
 		
-		node setNode.js t 6 68 90 107 5 600000 0
-		node setNode.js t 6 104 127 145 5 600000 0
-		node setNode.js t 6 218 241 261 5 600000 0
-		node setNode.js t 6 394 417 436 5 600000 0
-		node setNode.js t 6 762 783 802 5 600000 0
-	
-	
-	
-	
+		
+		TO1加10
+		
+		node setNode.js t 6 46 69 86 5 600000 0
+		node setNode.js t 6 78 100 117 4 600000 0
+		node setNode.js t 6 114 137 155 3 600000 0
+		node setNode.js t 6 228 251 271 2 600000 0
+		node setNode.js t 6 404 427 446 1 600000 0
+		node setNode.js t 6 772 793 812 0 600000 0
+		
+		
+		TO1兩倍
+		
+		node setNode.js t 6 72 95 112 5 600000 0
+		node setNode.js t 6 78 100 117 4 600000 0
+		node setNode.js t 6 114 137 155 3 600000 0
+		node setNode.js t 6 228 251 271 2 600000 0
+		node setNode.js t 6 404 427 446 1 600000 0
+		node setNode.js t 6 772 793 812 0 600000 0
+		
