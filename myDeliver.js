@@ -84,7 +84,8 @@ function TimeOutVoteDeliver(height, round, ID){
 	console.log("lastRoundVote : ", lastRoundVote);
 	
 	var data = {
-		type: "Vote",
+		//type: "Vote",
+		type: "toAggregateVote",
 		height: height, round: round, sender: ID,
 		vote : lastRoundVote,	//投上回合的投的票
 		timeout: 1

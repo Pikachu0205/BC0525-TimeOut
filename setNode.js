@@ -76,15 +76,15 @@ function node(){
 		if (err) return console.log(err);
 		
 		readfile = data.toString().split('\n');
+		console.log(readfile);
 		
-		
-		for(i=0; i < member; i++)
+		for(var i=0; i < member; i++)
 			//awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
 			ipList[i] = readfile[i].replace(/[\r\n]/g,"");
 			
 		privateKey = ec.keyFromPrivate( readfile[2*member + ID].replace(/[\r\n]/g,"") );
 		
-		for(i=0; i < member; i++)
+		for(var i=0; i < member; i++)
 			publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
 				
 		myDeliver.ReadyDeliver(ID, 0);
