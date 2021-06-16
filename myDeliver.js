@@ -5,9 +5,6 @@ require("./post.js");
 
 
 function BlockDeliver(height, round, ID){
-	
-	console.log("送block了喔");
-	
 	var data = {
 		type: "Block",
 		height: height, round: round, sender: ID, maker: ID,
@@ -20,8 +17,12 @@ function BlockDeliver(height, round, ID){
 	else
 		data.maker = lastRoundBlock.maker;
 	
+	
 	data = signature(data);	//產生blockHash和signature
 	data.blockHash = (lastRoundBlock == null) ? data.messageHash : lastRoundBlock.blockHash;
+	
+	
+	console.log("送block了喔");
 	
 	for(var i in ipList)
 		mesDeliver(i, data);
@@ -37,6 +38,7 @@ function toAaggregateDeliver(height, round, blockHash){
 		vote : blockHash
 	}
 	
+	
 	data = signature(data);
 	lastRoundVote = data.vote;
 	
@@ -44,12 +46,13 @@ function toAaggregateDeliver(height, round, blockHash){
 }
 
 
-function fromAggregateDeliver(height, round, ID){
+function fromAggregateDeliver(height, round){
 	var data = {
 		type: "fromAggregateVote",
 		height: height, round: round, sender: ID,
 		voteCollection : thisLockset
 	}
+	
 	
 	data = signature(data);
 	
@@ -58,7 +61,7 @@ function fromAggregateDeliver(height, round, ID){
 }
 
 
-function VoteDeliver(height, round, ID){
+function VoteDeliver(height, round){
 	isVoteLock = 1;
 	
 	var data = {
@@ -66,6 +69,7 @@ function VoteDeliver(height, round, ID){
 		height: height, round: round, sender: ID,
 		vote : blockBody
 	}
+	
 	
 	data = signature(data);
 	lastRoundVote = data.vote;
@@ -96,7 +100,7 @@ function TimeOutVoteDeliver(height, round, ID){
 
 
 //senior為請求syn的人
-function SynReqDeliver(height, round, ID, senior, reqHeight, reqRound){
+function SynReqDeliver(height, round, senior, reqHeight, reqRound){
 	//console.log("Ask for synBlock");
 	
 	var data = {
@@ -106,23 +110,26 @@ function SynReqDeliver(height, round, ID, senior, reqHeight, reqRound){
 		rR : reqRound
 	}
 	
+	
 	data = signature(data);
 	mesDeliver(senior, data);
 }
 
 
-function SynResDeliver(height, round, ID, junior, reqHeight, items){
+//function SynResDeliver(height, round, ID, junior, reqHeight, items){
+function SynResDeliver(height, round, ID, recipient, reqHeight){
 	//console.log("Res for synBlock");
 	
 	var data = {
 		type: "SynRes",
 		height: height, round: round, sender: ID,
-		items : items,
+		//items : items,
 		synheight : reqHeight
 	}
 	
+	
 	data = signature(data);
-	mesDeliver(junior, data);
+	mesDeliver(recipient, data);
 }
 
 

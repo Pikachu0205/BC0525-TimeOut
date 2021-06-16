@@ -82,13 +82,13 @@ function node(){
 			//awsUrlList[i] = readfile[i].replace(/[\r\n]/g,"");
 			ipList[i] = readfile[i].replace(/[\r\n]/g,"");
 			
-		privateKey = ec.keyFromPrivate( readfile[member + 100 + ID].replace(/[\r\n]/g,"") );
+		privateKey = ec.keyFromPrivate( readfile[2*member + ID].replace(/[\r\n]/g,"") );
 		
 		for(i=0; i < member; i++)
 			publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
 				
 		myDeliver.ReadyDeliver(ID, 0);
-		myRecord.endRecordTime_Of();
+		//myRecord.endRecordTime_Of();
 				
 	});
 	/*

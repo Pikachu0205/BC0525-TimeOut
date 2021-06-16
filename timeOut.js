@@ -1,10 +1,13 @@
 function timeOutStart(){
 	
 	t1 = setTimeout(function(){
+		
 		if(!blockBody && (ID != leader))	//我沒收到block也不是leader
 			myDeliver.TimeOutVoteDeliver(height, round, ID);
+			
 	},TO1);
 
+	
 	t2 = setTimeout(function(){	//aggregate等收票
 		if(ID == aggregate){
 			
@@ -12,19 +15,20 @@ function timeOutStart(){
 			
 			
 			//把處理好的結果傳給其他節點
-			myDeliver.fromAggregateDeliver(height, round, ID);
+			myDeliver.fromAggregateDeliver(height, round);
 			
 		}
 	},TO2);
 	
+	
 	t3 = setTimeout(function(){	//等收票
 		var timeout = 1, synround = -1;
 		
-		//冊書囉鋪
-		//(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
+		//測書囉鋪
+		(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
 		
 		//測timeout的
-		myDeliver.ReadyDeliver(ID, 0);
+		//myDeliver.ReadyDeliver(ID, 0);
 		
 		//學弟的
 		//(commitBlock) ? myProcedure.feedbackTransaction(synround) : newRound(timeout, synround);

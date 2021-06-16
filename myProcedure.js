@@ -48,10 +48,11 @@ function firstBlock(){	//決定leader要送什麼block
 
 
 function maxVotesBlock(lockset, c, fault){	//選出上回合最多人支持的block
+	var result = {};
+	var max = 0;
+	var mark = null;
+	
 	lockset = lockset.sort();
-	result = {};
-	max = 0;
-	mark = null;
 	
 	for(var i in lockset)	//看這張票是不是加到result裡面了
 		(result[lockset[i]]) ? result[lockset[i]]++ : result[lockset[i]] = 1;

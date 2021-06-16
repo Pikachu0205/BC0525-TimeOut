@@ -1,14 +1,23 @@
-function customVerify(message, type){
-	if(type == 0)
-		publicKey = ec.keyFromPublic(publicKeyList[message.sender], 'hex');
-	if(type == 1)
-		publicKey = ec.keyFromPublic(publicKeyList[message.maker], 'hex');
+function getBlock(block){
+	receiveBlock = 1;
 	
-	return publicKey.verify(message.messageHash, message.signature);
+	blockBody = {
+		height: block.height,
+		maker: block.maker,
+		blockHash: block.blockHash,
+		messageHash: block.messageHash,
+		signature: block.signature
+	}
+	
+	if(!isVoteLock){
+		myDeliver.toAaggregateDeliver(height, round, blockBody.blockHash);
+		//myDeliver.VoteDeliver(height, round);
+	}
+		
 }
 
 
-function isCommit(voteCollection, start_TO3){	//data = voteCollection[]
+function isCommit(voteCollection){	//data = voteCollection[]
 	
 	//當票達到足夠的門檻
 	if(commitBlock == null && (voteCollection.length >= coefficient * fault + 1) ){
@@ -19,21 +28,22 @@ function isCommit(voteCollection, start_TO3){	//data = voteCollection[]
 			//console.log("insert", commitBlock, "to DB");
 			
 			saveblock.push(height);	//紀錄已經commit了這個height的block
+			
 			//mgdb.insertOne(commitBlock);
+			
 			lastBlockHash = commitBlock.messageHash;
 			
-			var synround = 0;
 			
-			//myRecord.recordTime_Of_TO3(start_TO3);
-			//start_TO4 = new Date().getTime();
-			
-			//myMain.newHeight(synround);
+			//if( !newHeightTogether ){
+				//myProcedure.feedbackTransaction();
+				myMain.newHeight(0);
+			//}
 			
 		}
 		
 	}
 	
-	myDeliver.ReadyDeliver(ID, 0);
+	//myDeliver.ReadyDeliver(ID, 0);
 	
 }
 
@@ -43,15 +53,16 @@ function legalVote(lockset, height, round){	//找出大於cf+1張合法票的人
 	
 	for(var i in lockset)	//論文寫說4f+1投給同一個值.目前沒寫判斷是否同一個
 	
-		if(memls[lockset[i].sender] == null ){		//檢查這個人的票是不是有被計算過
+		if(memls[lockset[i].sender] == null )		//檢查這個人的票是不是有被計算過
+			
 			if(lockset[i].vote != null &&  lockset[i].height == height  &&  lockset[i].round == round){
 			
 				block.push(lockset[i].vote);
 				memls[lockset[i].sender] = 1;	//每人的票只被計算一次
 			
 			}
-		}
-		
+	
+	
 	for(var i in block){  
 	
 		var key = block[i].blockHash; 
@@ -77,19 +88,13 @@ function legalVote(lockset, height, round){	//找出大於cf+1張合法票的人
 }
 
 
-function getBlock(block){
-	receiveBlock = 1;
+function customVerify(message, type){
+	if(type == 0)
+		publicKey = ec.keyFromPublic(publicKeyList[message.sender], 'hex');
+	if(type == 1)
+		publicKey = ec.keyFromPublic(publicKeyList[message.maker], 'hex');
 	
-	blockBody = {
-		height: block.height,
-		maker: block.maker,
-		blockHash: block.blockHash,
-		messageHash: block.messageHash,
-		signature: block.signature
-	}
-	
-	if(!isVoteLock)
-		myDeliver.toAaggregateDeliver(height, round, blockBody.blockHash);
+	return publicKey.verify(message.messageHash, message.signature);
 }
 
 
@@ -99,6 +104,7 @@ function getArrDifference(arr1, arr2){	//找出兩個陣列不同的值
 
         return arr.indexOf(v) === arr.lastIndexOf(v);
     });
+	
 }
 
 
@@ -108,7 +114,9 @@ function roughSizeOfObject( object ) {
     var stack = [ object ];
     var bytes = 0;
 
+	
     while ( stack.length ) {
+		
         var value = stack.pop();
 
         if ( typeof value === 'boolean' )
@@ -127,19 +135,20 @@ function roughSizeOfObject( object ) {
             for( var i in value )
                 stack.push( value[ i ] );
         }
+		
     }
 	
-	console.log(bytes);
+	console.log("資料大小 : " + bytes + "bytes");
 	
     return bytes;
 }
 
 
 function display(item){		//show出app之間所傳的訊息
-		if(item.timeout != 1)
-			console.log(item.type, " height", item.height, " round", item.round, " sender", item.sender);
-		else
-			console.log("Timeout", " height", item.height, " round", item.round, " sender", item.sender);
+	if(item.timeout != 1)
+		console.log(item.type, " height", item.height, " round", item.round, " sender", item.sender);
+	else
+		console.log("Timeout", " height", item.height, " round", item.round, " sender", item.sender);
 }
 
 
