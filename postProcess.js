@@ -43,8 +43,10 @@ function isCommit(voteCollection){	//data = voteCollection[]
 		
 	}
 	
+	var endHandle_TO4 = new Date().getTime();
+	Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+	
 	myDeliver.ReadyDeliver(ID, 0);
-	Handle4_Buffer.push(Date().getTime() - handle_TO4);
 }
 
 

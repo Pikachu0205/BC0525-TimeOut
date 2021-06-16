@@ -164,20 +164,23 @@ function signature(data){
 function mesDeliver(recipient, data){
 	
 	if(data.type == "Block"){
-		Handle2_Buffer.push(Date().getTime() - handle_TO1);
+		var endHandle_TO1 = new Date().getTime();
+		Handle2_Buffer.push(endHandle_TO1 - handle_TO1);
 		
 		data.start_TO1 = new Date().getTime();
 	}
 	
 	
 	if(data.type == "toAggregateVote"){
-		Handle2_Buffer.push(Date().getTime() - handle_TO2);
+		var endHandle_TO2 = new Date().getTime();
+		Handle2_Buffer.push(endHandle_TO2 - handle_TO2);
 		
 		data.start_TO2 = new Date().getTime();
 	}
 	
 	if(data.type == "fromAggregateVote"){
-		Handle3_Buffer.push(Date().getTime() - handle_TO3);
+		var endHandle_TO3 = new Date().getTime();
+		Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
 		
 		data.start_TO3 = new Date().getTime();
 	}

@@ -29,7 +29,8 @@ function timeOutStart(){
 		
 		//測timeout的
 		myDeliver.ReadyDeliver(ID, 0);
-		Handle4_Buffer.push(Date().getTime() - handle_TO4);
+		var endHandle_TO4 = new Date().getTime();
+		Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 		
 		//學弟的
 		//(commitBlock) ? myProcedure.feedbackTransaction(synround) : newRound(timeout, synround);
