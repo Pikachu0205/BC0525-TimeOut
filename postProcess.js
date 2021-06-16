@@ -36,17 +36,17 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			
 			//if( !newHeightTogether ){
 				//myProcedure.feedbackTransaction();
-				//myMain.newHeight();
+				myMain.newHeight();
 			//}
 			
 		}
 		
 	}
 	
-	var endHandle_TO4 = new Date().getTime();
-	Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+	//var endHandle_TO4 = new Date().getTime();
+	//Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 	
-	myDeliver.ReadyDeliver(ID, 0);
+	//myDeliver.ReadyDeliver(ID, 0);
 }
 
 
