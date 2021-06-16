@@ -165,7 +165,7 @@ function mesDeliver(recipient, data){
 	
 	if(data.type == "Block"){
 		var endHandle_TO1 = new Date().getTime();
-		Handle2_Buffer.push(endHandle_TO1 - handle_TO1);
+		Handle1_Buffer.push(endHandle_TO1 - handle_TO1);
 		
 		data.start_TO1 = new Date().getTime();
 	}
