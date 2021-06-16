@@ -1,7 +1,7 @@
 saveblock = [], readyMem = 0;
 receiveBlock = 0, stopRecMsig = 0, broMsig = 0, notSignedWitness = [];
 lastBlockHash = 0;
-feedbackVote = [];
+feedbackVote = [], aheadBlock = {};
 
 myMain = require("./myMain.js");
 myProcedure = require("./myProcedure.js");
@@ -20,8 +20,11 @@ app.post('/Block', function(req, res) {
 		//DataSize1.push( Object.keys(req.body) );
 		//DataSize1.push( postProcess.roughSizeOfObject(req.body) );	//測封包大小
 	
-		if(receiveBlock == null && req.body.height == height  &&  req.body.round == round)
+		if(receiveBlock == null && req.body.height == height  &&  req.body.round == round){
 			postProcess.getBlock(req.body);
+			isAheadBlock = 1;
+		}
+			
 		
 		else if(req.body.height > height  &&  saveblock.indexOf(req.body.height) == -1)
 			myDeliver.SynReqDeliver(height, round, ID, req.body.sender, req.body.height, req.body.round);

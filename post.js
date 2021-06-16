@@ -7,16 +7,16 @@ app.post('/SynReq', function(req, res){
 			
 			height:{
 				"$gte": req.body.height,
-				"$lt": req.body.rH
+				"$lt": req.body.reqH
 			}
 		
 		}).toArray(function(err,items){
 			if(err) throw err;
-			//myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH, items, VDF);
-			myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH, items);
+			//myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.reqH, items, VDF);
+			myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.reqH, items);
 		});
 		*/
-		myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.rH);
+		myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.reqH);
 		
 	}
 	
@@ -49,14 +49,16 @@ app.post('/SynRes', function(req, res) {
 		*/
 			
 		//synH用來確定這個回傳的h比我高.有時我可能先收到更高的
-		if(synH < req.body.synheight){
-			synH = req.body.synheight;
-			height = req.body.synheight-1;
+		if(synH < req.body.synHeight){
+			synH = req.body.synHeight;
+			height = req.body.synHeight-1;
+			
+			aheadBlock = req.body;
 			
 			//synround為要同步到的回合 因為要從height去同步所以-1
-			var synround = req.body.round-1;
+			//var synround = req.body.round-1;
 			
-			myMain.newHeight(synround);
+			myMain.newHeight();
 		}
 		
 		//}

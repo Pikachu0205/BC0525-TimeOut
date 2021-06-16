@@ -20,7 +20,7 @@ function getBlock(block){
 function isCommit(voteCollection){	//data = voteCollection[]
 	
 	//當票達到足夠的門檻
-	if(commitBlock == null && (voteCollection.length >= coefficient * fault + 1) ){
+	if( commitBlock == null  &&  (voteCollection.length >= coefficient * fault + 1) ){
 		commitBlock = legalVote(voteCollection, height, round);
 		
 		if(commitBlock != null){
@@ -36,7 +36,7 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			
 			//if( !newHeightTogether ){
 				//myProcedure.feedbackTransaction();
-				myMain.newHeight(0);
+				myMain.newHeight();
 			//}
 			
 		}
