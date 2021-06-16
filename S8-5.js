@@ -78,12 +78,12 @@ app.post('/Ready', function(req, res) {
 			if(readyMem == member){
 				myDeliver.ReadyDeliver(ID, 1);
 				
-				setTimeout(function(){
+				//setTimeout(function(){
 					
 					myMain.newHeight(startRound);
 					myRecord.recoedThroughput();
 					
-				},50);
+				//},50);
 			}
 		}
 		else
