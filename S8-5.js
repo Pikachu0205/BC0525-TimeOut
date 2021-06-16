@@ -84,10 +84,11 @@ app.post('/Ready', function(req, res) {
 			readyMem++;
 			
 			if(readyMem == member){
-				myDeliver.ReadyDeliver(ID, 1);
+				//myDeliver.ReadyDeliver(ID, 1);
 				
 				setTimeout(function(){
 					
+					myDeliver.ReadyDeliver(ID, 1);
 					myMain.newHeight(startRound);
 					myRecord.recoedThroughput();
 					
