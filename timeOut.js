@@ -25,10 +25,11 @@ function timeOutStart(){
 		var timeout = 1, synround = -1;
 		
 		//測書囉鋪
-		(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
+		//(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
 		
 		//測timeout的
-		//myDeliver.ReadyDeliver(ID, 0);
+		myDeliver.ReadyDeliver(ID, 0);
+		Handle4_Buffer.push(Date().getTime() - handle_TO4);
 		
 		//學弟的
 		//(commitBlock) ? myProcedure.feedbackTransaction(synround) : newRound(timeout, synround);

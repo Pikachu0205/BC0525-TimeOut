@@ -163,15 +163,24 @@ function signature(data){
 
 function mesDeliver(recipient, data){
 	
-	if(data.type == "Block")
+	if(data.type == "Block"){
+		Handle2_Buffer.push(Date().getTime() - handle_TO1);
+		
 		data.start_TO1 = new Date().getTime();
+	}
 	
-	if(data.type == "toAggregateVote")
+	
+	if(data.type == "toAggregateVote"){
+		Handle2_Buffer.push(Date().getTime() - handle_TO2);
+		
 		data.start_TO2 = new Date().getTime();
+	}
 	
-	if(data.type == "fromAggregateVote")
+	if(data.type == "fromAggregateVote"){
+		Handle3_Buffer.push(Date().getTime() - handle_TO3);
+		
 		data.start_TO3 = new Date().getTime();
-	
+	}
 	
 	
 	axios({

@@ -36,15 +36,15 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			
 			//if( !newHeightTogether ){
 				//myProcedure.feedbackTransaction();
-				myMain.newHeight();
+				//myMain.newHeight();
 			//}
 			
 		}
 		
 	}
 	
-	//myDeliver.ReadyDeliver(ID, 0);
-	
+	myDeliver.ReadyDeliver(ID, 0);
+	Handle4_Buffer.push(Date().getTime() - handle_TO4);
 }
 
 

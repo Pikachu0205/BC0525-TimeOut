@@ -84,9 +84,9 @@
 		node setNode.js t 6 44 74 95 5 600000 0			node setNode.js t 6 88 118 139 5 600000 0	
 		node setNode.js t 6 82 111 132 4 600000 0		node setNode.js t 6 164 193 214 4 600000 0
 		node setNode.js t 6 120 149 173 3 600000 0		node setNode.js t 6 240 269 293 3 600000 0
-		node setNode.js t 6 253 284 307 2 600000 0
-		node setNode.js t 6 452 482 506 1 600000 0
-		node setNode.js t 6 878 905 928 0 600000 0
+		node setNode.js t 6 253 284 307 2 600000 0		node setNode.js t 6 506 537 560 2 600000 0
+		node setNode.js t 6 452 482 506 1 600000 0		node setNode.js t 6 452 482 506 1 600000 0
+		node setNode.js t 6 878 905 928 0 600000 0		node setNode.js t 6 878 905 928 0 600000 0
 		
 		
 		TO + 10											TO1 + 20	TO2 + 10	TO3 + 10

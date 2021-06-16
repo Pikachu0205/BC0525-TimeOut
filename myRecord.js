@@ -1,13 +1,17 @@
 //require("./exForAgg.js");
 
-start_TO1 =0
-start_TO2 =0
-start_TO3 =0
-start_TO4 = 0
+handle_TO1 =0
+handle_TO2 =0
+handle_TO3 =0
+handle_TO4 = 0
 TO1_Buffer = []
 TO2_Buffer = []
 TO3_Buffer = []
 TO4_Buffer = []
+Handle1_Buffer = []
+Handle2_Buffer = []
+Handle3_Buffer = []
+Handle4_Buffer = []
 DataSize1 = []
 DataSize2 = []
 DataSize3 = []
@@ -40,18 +44,20 @@ function endRecordTime_Of(){
 		
 		//console.log("要統計標準差了喔");
 		
-		console.log("TO1_Buffer : " + TO1_Buffer);
-		console.log("TO2_Buffer : " + TO2_Buffer);
-		console.log("TO3_Buffer : " + TO3_Buffer);
+		console.log("TO1_Buffer : " + Handle1_Buffer);
+		console.log("TO2_Buffer : " + Handle2_Buffer);
+		console.log("TO3_Buffer : " + Handle3_Buffer);
+		console.log("TO4_Buffer : " + Handle4_Buffer);
 		
-		stddev1 = stddevMean(TO1_Buffer);
-		stddev2 = stddevMean(TO2_Buffer);
-		stddev3 = stddevMean(TO3_Buffer);
-		
+		stddev1 = stddevMean(Handle1_Buffer);
+		stddev2 = stddevMean(Handle2_Buffer);
+		stddev3 = stddevMean(Handle3_Buffer);
+		stddev4 = stddevMean(Handle4_Buffer);
 		
 		var write1 = stddev1.toFixed(3) + ",";
 		var write2 = stddev2.toFixed(3) + ",";
 		var write3 = stddev3.toFixed(3) + ",";
+		var write4 = stddev4.toFixed(3) + ",";
 		
 		//console.log("write1 : " + write1);
 		//console.log("write2 : " + write2);
@@ -61,10 +67,12 @@ function endRecordTime_Of(){
 		fs.appendFile("TO1.txt", write1, function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO2.txt", write2, function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO3.txt", write3, function (err) {	if(err)	console.log(err);	})
-		
+		fs.appendFile("TO4.txt", write4, function (err) {	if(err)	console.log(err);	})
+			
 		fs.appendFile("TO1_dot.txt", TO1_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO2_dot.txt", TO2_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO3_dot.txt", TO3_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
+		fs.appendFile("TO4_dot.txt", TO4_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		
 		//fs.appendFile("TO1_DS.txt", DataSize1 + "\n", function (err) {	if(err)	console.log(err);	})
 		//fs.appendFile("TO2_DS.txt", DataSize2 + "\n", function (err) {	if(err)	console.log(err);	})
@@ -129,29 +137,35 @@ function recordTime_Of_Height(){
 
 
 function recordTime_Of_TO1(start_TO1){
+	handle_TO2 = new Date().getTime();
 	var end_TO1 = new Date().getTime();
 	
 	//console.log("第一個timeout");
 	
 	TO1_Buffer.push(end_TO1 - start_TO1);
+	
 }
 
 
 function recordTime_Of_TO2(start_TO2){
+	handle_TO3 = new Date().getTime();
 	var end_TO2 = new Date().getTime();
 	
 	//console.log("第二個timeout");
 	
 	TO2_Buffer.push(end_TO2 - start_TO2);
+	
 }
 
 
 function recordTime_Of_TO3(start_TO3){
+	handle_TO4 = new Date().getTime();
 	var end_TO3 = new Date().getTime();
 	
 	//console.log("第三個timeout");
 	
 	TO3_Buffer.push(end_TO3 - start_TO3);
+	
 }
 
 
