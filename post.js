@@ -16,7 +16,7 @@ app.post('/SynReq', function(req, res){
 			myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.reqH, items);
 		});
 		*/
-		myDeliver.SynResDeliver(height, round, ID, req.body.sender, req.body.reqH);
+		myDeliver.SynResDeliver(req.body.sender, req.body.reqH);
 		
 	}
 	

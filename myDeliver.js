@@ -101,7 +101,7 @@ function TimeOutVoteDeliver(height, round, ID){
 
 
 //senior為請求syn的人
-function SynReqDeliver(height, round, recipient, myReq_Height, myReq_Round){
+function SynReqDeliver(recipient, myReq_Height, myReq_Round){
 	//console.log("Ask for synBlock");
 	
 	var data = {
@@ -118,14 +118,15 @@ function SynReqDeliver(height, round, recipient, myReq_Height, myReq_Round){
 
 
 //function SynResDeliver(height, round, ID, junior, reqHeight, items){
-function SynResDeliver(height, round, ID, recipient, yourReq_Height){
+function SynResDeliver(recipient, yourReq_Height, yourReq_Round){
 	//console.log("Res for synBlock");
 	
 	var data = {
 		type: "SynRes",
 		height: height, round: round, sender: ID,
 		//items : items,
-		synHeight : height
+		synHeight : height,
+		synRound : round
 		//synHeight : yourReq_Height
 	}
 	

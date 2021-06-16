@@ -20,14 +20,12 @@ app.post('/Block', function(req, res) {
 		//DataSize1.push( Object.keys(req.body) );
 		//DataSize1.push( postProcess.roughSizeOfObject(req.body) );	//測封包大小
 	
-		if(receiveBlock == null && req.body.height == height  &&  req.body.round == round){
+		if(receiveBlock == null && req.body.height == height  &&  req.body.round == round)
 			postProcess.getBlock(req.body);
-			isAheadBlock = 1;
-		}
-			
+		
 		
 		else if(req.body.height > height  &&  saveblock.indexOf(req.body.height) == -1)
-			myDeliver.SynReqDeliver(height, round, ID, req.body.sender, req.body.height, req.body.round);
+			myDeliver.SynReqDeliver(req.body.sender, req.body.height, req.body.round);
 		
 	}
 	
