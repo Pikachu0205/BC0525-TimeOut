@@ -91,15 +91,18 @@
 		node setNode.js t 6 878 905 928 0 600000 0		node setNode.js t 6 878 905 928 0 600000 0
 		
 		
-		TO + 10											TO1 + 20	TO2 + 10	TO3 + 10
-		node setNode.js t 6 54 94 125 5 600000 0		node setNode.js t 6 64 104 135 5 600000 0
 		
 		node setNode.js t 6 1000 1250 1500 5 300000 0
+		
+		
 		加入個階段之處理時間
 		
-		
-		
-		
+		node setNode.js t 6 50 83 105 5 600000 0	
+		node setNode.js t 6 88 120 142 4 600000 0
+		node setNode.js t 6 130 162 187 3 600000 0
+		node setNode.js t 6 271 305 329 2 600000 0
+		node setNode.js t 6 486 519 544 1 600000 0
+		node setNode.js t 6 966 996 1020 0 600000 0
 		
 		
 		172.17.249.186

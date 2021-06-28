@@ -24,13 +24,15 @@ function timeOutStart(){
 	t3 = setTimeout(function(){	//等收票
 		var timeout = 1, synround = -1;
 		
-		//測書囉鋪
-		(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
+		//	=====測書囉鋪=====		//	另一個要改的地方在postProcess.js之isCommit
+		//(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
 		
-		//測timeout的
-		//myDeliver.ReadyDeliver(ID, 0);
-		//var endHandle_TO4 = new Date().getTime();
-		//Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+		
+		//	=====測timeout的=====		//	另一個要改的地方在postProcess.js之isCommit
+		myDeliver.ReadyDeliver(ID, 0);
+		var endHandle_TO4 = new Date().getTime();
+		Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+		
 		
 		//學弟的
 		//(commitBlock) ? myProcedure.feedbackTransaction(synround) : newRound(timeout, synround);

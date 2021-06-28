@@ -36,6 +36,7 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			
 			//if( !newHeightTogether ){
 				//myProcedure.feedbackTransaction();
+				//		=====冊書羅鋪=====		//	另一個要改的地方在timeOut.js之timeOutStart
 				myMain.newHeight();
 			//}
 			
@@ -46,7 +47,8 @@ function isCommit(voteCollection){	//data = voteCollection[]
 	//var endHandle_TO4 = new Date().getTime();
 	//Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 	
-	//myDeliver.ReadyDeliver(ID, 0);
+	//		=====測timeout的=====		//	另一個要改的地方在timeOut.js之timeOutStart
+	myDeliver.ReadyDeliver(ID, 0);
 }
 
 
