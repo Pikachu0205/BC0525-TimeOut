@@ -162,7 +162,7 @@ function signature(data){
 
 
 function mesDeliver(recipient, data){
-	/*
+	
 	if(data.type == "Block"){
 		var endHandle_TO1 = new Date().getTime();
 		Handle1_Buffer.push(endHandle_TO1 - handle_TO1);
@@ -184,7 +184,7 @@ function mesDeliver(recipient, data){
 		
 		data.start_TO3 = new Date().getTime();
 	}
-	*/
+	
 	
 	axios({
 		method: 'post',

@@ -44,8 +44,8 @@ function isCommit(voteCollection){	//data = voteCollection[]
 		
 	}
 	
-	//var endHandle_TO4 = new Date().getTime();
-	//Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+	var endHandle_TO4 = new Date().getTime();
+	Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 	
 	//		=====測timeout的=====		//	另一個要改的地方在timeOut.js之timeOutStart
 	myDeliver.ReadyDeliver(ID, 0);

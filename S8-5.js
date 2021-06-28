@@ -15,8 +15,8 @@ app.post('/Block', function(req, res) {
 		
 		//console.log("收到block");
 	
-		//myRecord.recordTime_Of_TO1(req.body.start_TO1);
-		//handle_TO2 = new Date().getTime();
+		myRecord.recordTime_Of_TO1(req.body.start_TO1);
+		handle_TO2 = new Date().getTime();
 	
 	
 		//DataSize1.push( Object.keys(req.body) );
@@ -41,8 +41,8 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		//console.log("AGG收到民眾投票");
 		
-		//myRecord.recordTime_Of_TO2(req.body.start_TO2);
-		//handle_TO3 = new Date().getTime();
+		myRecord.recordTime_Of_TO2(req.body.start_TO2);
+		handle_TO3 = new Date().getTime();
 		
 		thisLockset.push(req.body);		//將票存到lockset
 		
@@ -62,8 +62,8 @@ app.post('/fromAggregateVote', function(req, res) {
 		
 		//console.log("收到AGG整理好的投票");
 		
-		//myRecord.recordTime_Of_TO3(req.body.start_TO3);
-		//handle_TO4 = new Date().getTime();
+		myRecord.recordTime_Of_TO3(req.body.start_TO3);
+		handle_TO4 = new Date().getTime();
 		
 		postProcess.isCommit(req.body.voteCollection);
 		
