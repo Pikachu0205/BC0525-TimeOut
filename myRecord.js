@@ -137,7 +137,7 @@ function recordTime_Of_Height(){
 
 
 function recordTime_Of_TO1(start_TO1){
-	handle_TO2 = new Date().getTime();
+	//handle_TO2 = new Date().getTime();
 	var end_TO1 = new Date().getTime();
 	
 	//console.log("第一個timeout");
@@ -148,7 +148,7 @@ function recordTime_Of_TO1(start_TO1){
 
 
 function recordTime_Of_TO2(start_TO2){
-	handle_TO3 = new Date().getTime();
+	//handle_TO3 = new Date().getTime();
 	var end_TO2 = new Date().getTime();
 	
 	//console.log("第二個timeout");
@@ -159,7 +159,7 @@ function recordTime_Of_TO2(start_TO2){
 
 
 function recordTime_Of_TO3(start_TO3){
-	handle_TO4 = new Date().getTime();
+	//handle_TO4 = new Date().getTime();
 	var end_TO3 = new Date().getTime();
 	
 	//console.log("第三個timeout");

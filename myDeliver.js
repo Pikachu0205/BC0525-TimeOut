@@ -179,8 +179,8 @@ function mesDeliver(recipient, data){
 	}
 	
 	if(data.type == "fromAggregateVote"){
-		//var endHandle_TO3 = new Date().getTime();
-		//Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
+		var endHandle_TO3 = new Date().getTime();
+		Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
 		
 		data.start_TO3 = new Date().getTime();
 	}
