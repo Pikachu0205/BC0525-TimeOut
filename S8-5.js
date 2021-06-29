@@ -83,7 +83,7 @@ app.post('/Ready', function(req, res) {
 		nowTime = new Date().getTime();
 		console.log(nowTime);
 		
-		if(ID == 1){
+		if(ID == 0){
 			readyMem++;
 			
 			if(readyMem == member){
@@ -91,7 +91,7 @@ app.post('/Ready', function(req, res) {
 				
 				setTimeout(function(){
 					
-					myDeliver.ReadyDeliver(ID, 1);
+					myDeliver.ReadyDeliver(ID, 1);	//0為預備.1為開始
 					myMain.newHeight(startRound);
 					myRecord.recoedThroughput();
 					
