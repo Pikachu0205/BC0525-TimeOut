@@ -37,7 +37,7 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			//if( !newHeightTogether ){
 				//myProcedure.feedbackTransaction();
 				//		=====冊書羅鋪=====		//	另一個要改的地方在timeOut.js之timeOutStart
-				myMain.newHeight();
+				//myMain.newHeight();
 			//}
 			
 		}
