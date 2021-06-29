@@ -83,7 +83,7 @@ app.post('/Ready', function(req, res) {
 		nowTime = new Date().getTime();
 		console.log(nowTime);
 		
-		if(ID == 0){
+		if(ID == 1){
 			readyMem++;
 			
 			if(readyMem == member){
