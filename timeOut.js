@@ -29,7 +29,7 @@ function timeOutStart(){
 		
 		
 		//	=====測timeout的=====		//	另一個要改的地方在postProcess.js之isCommit
-		myDeliver.ReadyDeliver(ID, 0);
+		myDeliver.ReadyDeliver(ID, 1);
 		var endHandle_TO4 = new Date().getTime();
 		Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 		

@@ -86,7 +86,7 @@ function node(){
 		for(var i=0; i < member; i++)
 			publicKeyList[i] = readfile[member + i].replace(/[\r\n]/g,"");
 				
-		myDeliver.ReadyDeliver(ID, 0);
+		myDeliver.ReadyDeliver(ID, 1);
 		myRecord.endRecordTime_Of();
 				
 	});
