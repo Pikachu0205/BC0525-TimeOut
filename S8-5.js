@@ -80,6 +80,9 @@ app.post('/Ready', function(req, res) {
 		
 		//console.log("=== 收到ready ===");
 		
+		nowTime = new Date().getTime();
+		console.log(nowTime);
+		
 		if(ID == 0){
 			readyMem++;
 			
