@@ -55,10 +55,10 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		thisLockset.push(req.body);		//將票存到lockset
 		
-		/*if(thisLockset.length == member){
+		if(thisLockset.length == member){
 			var endHandle_TO3 = new Date().getTime();
 			Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
-		}*/
+		}
 		
 		
 	}
