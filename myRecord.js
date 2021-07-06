@@ -17,8 +17,8 @@ DataSize2 = []
 DataSize3 = []
 
 
-var sum = function(x,y){	return x + y;};
-var square = function(x){	return x * x;};
+var sum = function(x,y){ 	return x + y;};　　//求和函数
+var square = function(x){	 return x * x;};　　//数组中每个元素求它的平方
 
 fileName = "timeout" + args[8] + ".txt";
 
@@ -28,9 +28,9 @@ function startRecordTime_Of(){
 	//var write = "\n\n" + TOs1 + "\t" + TOs2 + "\t" + TOs3 + "\t\t" + member + "node\t" + sizeName[dataSize] + "\n\n";
 	var write = "\n";
 	
-	fs.appendFile("TO1.txt", write, function (err) {	if(err)	console.log(err);	})
-	fs.appendFile("TO2.txt", write, function (err) {	if(err)	console.log(err);	})
-	fs.appendFile("TO3.txt", write, function (err) {	if(err)	console.log(err);	})
+	//fs.appendFile("TO1.txt", write, function (err) {	if(err)	console.log(err);	})
+	//fs.appendFile("TO2.txt", write, function (err) {	if(err)	console.log(err);	})
+	//fs.appendFile("TO3.txt", write, function (err) {	if(err)	console.log(err);	})
 	//fs.appendFile("TO1_DS.txt", write, function (err) {	if(err)	console.log(err);	})
 	//fs.appendFile("TO2_DS.txt", write, function (err) {	if(err)	console.log(err);	})
 	//fs.appendFile("TO3_DS.txt", write, function (err) {	if(err)	console.log(err);	})
@@ -44,24 +44,32 @@ function endRecordTime_Of(){
 		
 		//console.log("要統計標準差了喔");
 		
-		console.log("TO1_Buffer : " + Handle1_Buffer);
-		console.log("TO2_Buffer : " + Handle2_Buffer);
-		console.log("TO3_Buffer : " + Handle3_Buffer);
-		console.log("TO4_Buffer : " + Handle4_Buffer);
+		/*
+		console.log("TO1_Buffer : " + TO1_Buffer);
+		console.log("TO2_Buffer : " + TO2_Buffer);
+		console.log("TO3_Buffer : " + TO3_Buffer);
 		
-		stddev1 = stddevMean(Handle1_Buffer);
-		stddev2 = stddevMean(Handle2_Buffer);
-		stddev3 = stddevMean(Handle3_Buffer);
-		stddev4 = stddevMean(Handle4_Buffer);
+		console.log("Handle1_Buffer : " + Handle1_Buffer);
+		console.log("Handle2_Buffer : " + Handle2_Buffer);
+		console.log("Handle3_Buffer : " + Handle3_Buffer);
+		console.log("Handle4_Buffer : " + Handle4_Buffer);
+		*/
 		
+		
+		stddevMean(TO1_Buffer);
+		stddevMean(TO2_Buffer);
+		stddevMean(TO3_Buffer);
+		
+		stddevMean(Handle1_Buffer);
+		stddevMean(Handle2_Buffer);
+		stddevMean(Handle3_Buffer);
+		stddevMean(Handle4_Buffer);
+		/*
 		var write1 = stddev1.toFixed(3) + ",";
 		var write2 = stddev2.toFixed(3) + ",";
 		var write3 = stddev3.toFixed(3) + ",";
 		var write4 = stddev4.toFixed(3) + ",";
 		
-		//console.log("write1 : " + write1);
-		//console.log("write2 : " + write2);
-		//console.log("write3 : " + write3);
 		
 		//fs.appendFile(fileName, write, function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO1.txt", write1, function (err) {	if(err)	console.log(err);	})
@@ -73,7 +81,8 @@ function endRecordTime_Of(){
 		fs.appendFile("TO2_dot.txt", TO2_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO3_dot.txt", TO3_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
 		fs.appendFile("TO4_dot.txt", TO4_Buffer + "\n", function (err) {	if(err)	console.log(err);	})
-		
+		*/
+	
 		//fs.appendFile("TO1_DS.txt", DataSize1 + "\n", function (err) {	if(err)	console.log(err);	})
 		//fs.appendFile("TO2_DS.txt", DataSize2 + "\n", function (err) {	if(err)	console.log(err);	})
 		//fs.appendFile("TO3_DS.txt", DataSize3 + "\n", function (err) {	if(err)	console.log(err);	})
@@ -84,21 +93,24 @@ function endRecordTime_Of(){
 
 
 function stddevMean(TObuffer){
+	//console.log("TObuffer : " + TObuffer);
 	
-	var mean = TObuffer.reduce(sum) / TObuffer.length;
+	var total = TObuffer.reduce(sum);
+	var mean = ( parseFloat(total) / TObuffer.length ).toFixed(2);
 	
+
+		
+	var deviations = TObuffer.map(function(x){return parseFloat(x) - mean;});
+	var stddev = ( Math.sqrt(deviations.map(square).reduce(sum)/(TObuffer.length-1)) ).toFixed(2);
+	
+	console.log("平均值：" + mean);
+	//console.log("偏差：" + deviations.toFixed(3));
+	console.log("标准差：" + stddev);
+	
+	//return stddev;
 	/*
-	var deviations = TObuffer.map(function(x){	return x - mean;	});
-	var stddev = Math.sqrt(deviations.map(square).reduce(sum) / (TObuffer.length - 1));
-	
-	//console.log("stddev : " + stddev);	//console.log("mean : " + mean);
-	
-	result = [(stddev + stddev + mean).toFixed(2) , (stddev + mean).toFixed(2) , mean.toFixed(2) , (mean - stddev).toFixed(2) , (mean - stddev - stddev).toFixed(2)]
-	
-	return result;
+	//var sum = TObuffer.reduce(function (a, b) {	return a + b;	}, 0);
 	*/
-	
-	return mean;
 }
 
 

@@ -24,14 +24,22 @@ function timeOutStart(){
 	t3 = setTimeout(function(){	//等收票
 		var timeout = 1, synround = -1;
 		
+		
 		//	=====測書囉鋪=====		//	另一個要改的地方在postProcess.js之isCommit
 		//(commitBlock) ? myMain.newHeight(synround) : myMain.newRound(timeout, synround);
 		
 		
 		//	=====測timeout的=====		//	另一個要改的地方在postProcess.js之isCommit
 		myDeliver.ReadyDeliver(ID, 0);	//0為預備.1為開始
-		var endHandle_TO4 = new Date().getTime();
+		
+		
+		
+		
+		
+		var endHandle_TO4 = new Date().getTime();	//S8-5的post('/fromAggregateVote')開始
 		Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
+		
+		
 		
 		
 		//學弟的

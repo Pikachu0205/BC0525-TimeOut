@@ -164,7 +164,7 @@ function signature(data){
 function mesDeliver(recipient, data){
 	
 	if(data.type == "Block"){
-		var endHandle_TO1 = new Date().getTime();
+		var endHandle_TO1 = new Date().getTime();	//myMain.newHeight開始
 		Handle1_Buffer.push(endHandle_TO1 - handle_TO1);
 		
 		data.start_TO1 = new Date().getTime();
@@ -172,14 +172,14 @@ function mesDeliver(recipient, data){
 	
 	
 	if(data.type == "toAggregateVote"){
-		var endHandle_TO2 = new Date().getTime();
+		var endHandle_TO2 = new Date().getTime();	//S8-5的post('/Block')開始
 		Handle2_Buffer.push(endHandle_TO2 - handle_TO2);
 		
 		data.start_TO2 = new Date().getTime();
 	}
 	
 	if(data.type == "fromAggregateVote"){
-		var endHandle_TO3 = new Date().getTime();
+		var endHandle_TO3 = new Date().getTime();	//S8-5的post('/toAggregateVote')開始
 		Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
 		
 		data.start_TO3 = new Date().getTime();
