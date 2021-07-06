@@ -44,7 +44,7 @@ function endRecordTime_Of(){
 		
 		//console.log("要統計標準差了喔");
 		
-		/*
+		
 		console.log("TO1_Buffer : " + TO1_Buffer);
 		console.log("TO2_Buffer : " + TO2_Buffer);
 		console.log("TO3_Buffer : " + TO3_Buffer);
@@ -53,7 +53,7 @@ function endRecordTime_Of(){
 		console.log("Handle2_Buffer : " + Handle2_Buffer);
 		console.log("Handle3_Buffer : " + Handle3_Buffer);
 		console.log("Handle4_Buffer : " + Handle4_Buffer);
-		*/
+		
 		
 		
 		stddevMean(TO1_Buffer);
