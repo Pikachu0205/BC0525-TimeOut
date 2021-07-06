@@ -46,8 +46,9 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		
 		
-		myRecord.recordTime_Of_TO2(req.body.start_TO2);	//
-		handle_TO3 = new Date().getTime();	//在myDeliver.mesDeliver處理
+		myRecord.recordTime_Of_TO2(req.body.start_TO2);
+		if(ID == leader)
+			handle_TO3 = new Date().getTime();	//在myDeliver.mesDeliver處理
 		
 		//DataSize2.push( postProcess.roughSizeOfObject(req.body) );	//測封包大小
 		
@@ -55,7 +56,7 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		thisLockset.push(req.body);		//將票存到lockset
 		
-		if(thisLockset.length == member){
+		if(thisLockset.length == member  &&  ID == leader){
 			var endHandle_TO3 = new Date().getTime();
 			Handle3_Buffer.push(endHandle_TO3 - handle_TO3);
 		}
