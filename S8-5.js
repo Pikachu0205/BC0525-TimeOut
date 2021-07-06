@@ -47,7 +47,7 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		
 		myRecord.recordTime_Of_TO2(req.body.start_TO2);
-		if(ID == leader)
+		if(thisLockset.length == 0  &&  ID == leader)
 			handle_TO3 = new Date().getTime();	//在myDeliver.mesDeliver處理
 		
 		//DataSize2.push( postProcess.roughSizeOfObject(req.body) );	//測封包大小
