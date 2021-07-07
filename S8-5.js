@@ -13,7 +13,7 @@ postProcess = require("./postProcess.js");
 app.post('/Block', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		//console.log("收到block");
+		console.log("收到block");
 	
 	
 	
@@ -42,7 +42,7 @@ app.post('/Block', function(req, res) {
 app.post('/toAggregateVote', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		//console.log("AGG收到民眾投票");
+		console.log("AGG收到民眾投票");
 		
 		
 		
@@ -70,7 +70,7 @@ app.post('/toAggregateVote', function(req, res) {
 app.post('/fromAggregateVote', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		//console.log("收到AGG整理好的投票");
+		console.log("收到AGG整理好的投票");
 		
 		
 		

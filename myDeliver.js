@@ -174,7 +174,6 @@ function mesDeliver(recipient, data){
 	if(data.type == "toAggregateVote"){
 		var endHandle_TO2 = new Date().getTime();	//S8-5的post('/Block')開始
 		Handle2_Buffer.push(endHandle_TO2 - handle_TO2);
-		handle_TO2 = 0;
 		
 		data.start_TO2 = new Date().getTime();
 	}
@@ -186,6 +185,7 @@ function mesDeliver(recipient, data){
 		data.start_TO3 = new Date().getTime();
 	}
 	
+	console.log("要傳送 " + data.type + " 了喔");
 	
 	axios({
 		method: 'post',
