@@ -176,6 +176,7 @@ function mesDeliver(recipient, data){
 		Handle2_Buffer.push(endHandle_TO2 - handle_TO2);
 		
 		data.start_TO2 = new Date().getTime();
+		console.log("要傳給AGG了 :" + data.start_TO2);
 	}
 	
 	if(data.type == "fromAggregateVote"){
