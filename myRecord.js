@@ -160,7 +160,7 @@ function recordTime_Of_TO1(start_TO1){
 	var end_TO1 = new Date().getTime();
 	
 	//console.log("第一個timeout");
-	typeof(end_TO1 - start_TO1);
+	console.log(typeof(end_TO1 - start_TO1));
 	TO1_Buffer.push(end_TO1 - start_TO1);
 	
 }
