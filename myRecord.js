@@ -21,7 +21,7 @@ var sum = function(x,y){ 	return x + y;};　　//求和函数
 var square = function(x){	 return x * x;};　　//数组中每个元素求它的平方
 
 fileName = "timeout" + args[8] + ".txt";
-
+var result = [];
 
 function startRecordTime_Of(){
 	
@@ -64,6 +64,8 @@ function endRecordTime_Of(){
 		stddevMean(Handle2_Buffer);
 		stddevMean(Handle3_Buffer);
 		stddevMean(Handle4_Buffer);
+		
+		console.log(result);
 		/*
 		var write1 = stddev1.toFixed(3) + ",";
 		var write2 = stddev2.toFixed(3) + ",";
@@ -103,9 +105,14 @@ function stddevMean(TObuffer){
 	var deviations = TObuffer.map(function(x){return parseFloat(x) - mean;});
 	var stddev = ( Math.sqrt(deviations.map(square).reduce(sum)/(TObuffer.length-1)) ).toFixed(2);
 	
-	console.log("平均值：" + mean);
+	
+	result.push(mean);
+	result.push(stddev);
+	
+	
+	//console.log("平均值：" + mean);
 	//console.log("偏差：" + deviations.toFixed(3));
-	console.log("标准差：" + stddev);
+	//console.log("标准差：" + stddev);
 	
 	//return stddev;
 	/*

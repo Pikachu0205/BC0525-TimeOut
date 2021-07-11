@@ -29,6 +29,7 @@ function BlockDeliver(height, round, ID){
 }
 
 
+
 function toAaggregateDeliver(height, round, blockHash){
 	isVoteLock = 1;
 	
@@ -46,6 +47,7 @@ function toAaggregateDeliver(height, round, blockHash){
 }
 
 
+
 function fromAggregateDeliver(height, round){
 	var data = {
 		type: "fromAggregateVote",
@@ -59,6 +61,7 @@ function fromAggregateDeliver(height, round){
 	for(var i in ipList)
 		mesDeliver(i, data);
 }
+
 
 
 function VoteDeliver(height, round){
@@ -77,6 +80,7 @@ function VoteDeliver(height, round){
 	for(var i in ipList)
 		mesDeliver(i, data);
 }
+
 
 
 function TimeOutVoteDeliver(height, round, ID){
@@ -100,6 +104,7 @@ function TimeOutVoteDeliver(height, round, ID){
 }
 
 
+
 //senior為請求syn的人
 function SynReqDeliver(recipient, myReq_Height, myReq_Round){
 	//console.log("Ask for synBlock");
@@ -115,6 +120,7 @@ function SynReqDeliver(recipient, myReq_Height, myReq_Round){
 	data = signature(data);
 	mesDeliver(recipient, data);
 }
+
 
 
 //function SynResDeliver(height, round, ID, junior, reqHeight, items){
@@ -136,6 +142,7 @@ function SynResDeliver(recipient, yourReq_Height, yourReq_Round){
 }
 
 
+
 function ReadyDeliver(ID, i){
 	var data = {	type: "Ready", height: 0, round: 0, sender: ID	}
 	
@@ -150,7 +157,9 @@ function ReadyDeliver(ID, i){
 }
 
 
+
 function signature(data){
+	
 	const messageHash = crypto.createHash('sha256').update(JSON.stringify(data)).digest('hex');
 	const signature = privateKey.sign(messageHash, 'base64').toDER('hex');
 	
@@ -159,6 +168,7 @@ function signature(data){
 	
 	return data;
 }
+
 
 
 function mesDeliver(recipient, data){
@@ -176,8 +186,9 @@ function mesDeliver(recipient, data){
 		Handle2_Buffer.push(endHandle_TO2 - handle_TO2);
 		
 		data.start_TO2 = new Date().getTime();
-		console.log("要傳給AGG了 :" + data.start_TO2);
+		//console.log("要傳給AGG了 : " + data.start_TO2);
 	}
+	
 	
 	if(data.type == "fromAggregateVote"){
 		//var endHandle_TO3 = new Date().getTime();	//S8-5的post('/toAggregateVote')開始
@@ -186,7 +197,9 @@ function mesDeliver(recipient, data){
 		data.start_TO3 = new Date().getTime();
 	}
 	
-	console.log("要傳送 " + data.type + " 了喔");
+	
+	//console.log("要傳送 " + data.type + " 了喔");
+	
 	
 	axios({
 		method: 'post',
