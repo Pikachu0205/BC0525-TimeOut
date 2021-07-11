@@ -44,8 +44,8 @@ app.post('/toAggregateVote', function(req, res) {
 		
 		console.log("AGG收到民眾投票 " + req.body.sender);
 		
-		var nowTime = new Date().getTime();
-		console.log(nowTime);
+		//var nowTime = new Date().getTime();
+		//console.log(nowTime);
 		
 		myRecord.recordTime_Of_TO2(req.body.start_TO2);
 		if(thisLockset.length == 0  &&  ID == leader)
