@@ -105,6 +105,8 @@ function stddevMean(TObuffer){
 	var deviations = TObuffer.map(function(x){return parseFloat(x) - mean;});
 	var stddev = ( Math.sqrt(deviations.map(square).reduce(sum)/(TObuffer.length-1)) ).toFixed(2);
 	
+	console.log(typeof(mean));
+	console.log(typeof(parseInt(mean)));
 	
 	result.push(parseInt(mean));
 	result.push(parseInt(stddev));
@@ -160,7 +162,7 @@ function recordTime_Of_TO1(start_TO1){
 	var end_TO1 = new Date().getTime();
 	
 	//console.log("第一個timeout");
-	console.log(typeof(end_TO1 - start_TO1));
+	//console.log(typeof(end_TO1 - start_TO1));
 	TO1_Buffer.push(end_TO1 - start_TO1);
 	
 }
