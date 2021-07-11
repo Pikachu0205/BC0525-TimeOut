@@ -105,8 +105,6 @@ function stddevMean(TObuffer){
 	var deviations = TObuffer.map(function(x){return parseFloat(x) - mean;});
 	var stddev = ( Math.sqrt(deviations.map(square).reduce(sum)/(TObuffer.length-1)) ).toFixed(2);
 	
-	console.log(typeof(mean));
-	console.log(typeof(parseInt(mean)));
 	
 	result.push(parseInt(mean));
 	result.push(parseInt(stddev));
