@@ -65,7 +65,7 @@ function endRecordTime_Of(){
 		stddevMean(Handle3_Buffer);
 		stddevMean(Handle4_Buffer);
 		
-		console.log(result);
+		console.log("result : " + result);
 		/*
 		var write1 = stddev1.toFixed(3) + ",";
 		var write2 = stddev2.toFixed(3) + ",";
