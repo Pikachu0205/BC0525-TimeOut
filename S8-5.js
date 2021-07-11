@@ -42,7 +42,7 @@ app.post('/Block', function(req, res) {
 app.post('/toAggregateVote', function(req, res) {
 	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
 		
-		console.log("AGG收到民眾投票 " + req.body.sender);
+		//console.log("AGG收到民眾投票 " + req.body.sender);
 		
 		//var nowTime = new Date().getTime();
 		//console.log(nowTime);

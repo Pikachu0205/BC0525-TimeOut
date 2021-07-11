@@ -15,13 +15,13 @@ Handle4_Buffer = []
 DataSize1 = []
 DataSize2 = []
 DataSize3 = []
-
+result = []
 
 var sum = function(x,y){ 	return x + y;};　　//求和函数
 var square = function(x){	 return x * x;};　　//数组中每个元素求它的平方
 
 fileName = "timeout" + args[8] + ".txt";
-var result = [];
+
 
 function startRecordTime_Of(){
 	
