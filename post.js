@@ -1,3 +1,52 @@
+app.post('/Vote', function(req, res) {
+	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
+		//postProcess.display(req.body);	//console.log("vote:", req.body.vote);
+		
+		myRecord.recordTime_Of_TO2(req.body.start_TO2);
+		
+		if(thisLockset.length == 0)
+			handle_TO3 = new Date().getTime();
+
+		thisLockset.push(req.body);		//將票存到lockset
+		
+		/*
+		//要回傳給學弟的BlockHash
+		fbBh = (req.body.vote == null) ? [] : req.body.vote.blockHash;
+		fbv = {
+			blockHash: fbBh,
+			sender: req.body.sender,
+			voteHash: req.body.blockHash,
+			signature: req.body.signature
+		}
+		feedbackVote.push(fbv);
+		*/
+		
+		//同步height
+		//if(req.body.height > height  &&  saveblock.indexOf(req.body.height) == -1)
+		//	myDeliver.SynReqDeliver(height, round, req.body.sender, req.body.height, req.body.round);
+		
+		//同步round
+		/*
+		else if(req.body.height >= height  &&  req.body.round > round){
+			
+			var istimeout = -1;		//synround為要同步到的回合
+			timeOut.timeOutStop();
+			
+			//console.log("round > ", req.body.round);
+			myMain.newRound(istimeout, req.body.round, req);
+		}
+		*/
+		//else{
+			postProcess.isCommit(req.body.voteCollection);
+		//}
+		
+		
+	}
+	
+	res.end();
+});
+
+
 app.post('/SynReq', function(req, res){	
 	if(postProcess.customVerify(req.body, 0)){
 		postProcess.display(req.body);
@@ -62,50 +111,6 @@ app.post('/SynRes', function(req, res) {
 		}
 		
 		//}
-		
-	}
-	
-	res.end();
-});
-
-
-app.post('/Vote', function(req, res) {
-	if(postProcess.customVerify(req.body, 0)  &&  height > 0){
-		postProcess.display(req.body);	//console.log("vote:", req.body.vote);
-			
-		thisLockset.push(req.body);		//將票存到lockset
-		
-		/*
-		//要回傳給學弟的BlockHash
-		fbBh = (req.body.vote == null) ? [] : req.body.vote.blockHash;
-		fbv = {
-			blockHash: fbBh,
-			sender: req.body.sender,
-			voteHash: req.body.blockHash,
-			signature: req.body.signature
-		}
-		feedbackVote.push(fbv);
-		*/
-		
-		//同步height
-		if(req.body.height > height  &&  saveblock.indexOf(req.body.height) == -1)
-			myDeliver.SynReqDeliver(height, round, req.body.sender, req.body.height, req.body.round);
-		
-		//同步round
-		/*
-		else if(req.body.height >= height  &&  req.body.round > round){
-			
-			var istimeout = -1;		//synround為要同步到的回合
-			timeOut.timeOutStop();
-			
-			//console.log("round > ", req.body.round);
-			myMain.newRound(istimeout, req.body.round, req);
-		}
-		*/
-		else{
-			postProcess.isCommit(req.body.voteCollection);
-		}
-		
 		
 	}
 	

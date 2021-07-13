@@ -17,6 +17,13 @@ DataSize2 = []
 DataSize3 = []
 result = []
 
+
+nonAgg_tran_Buffer1 = []
+nonAgg_tran_Buffer2 = []
+nonAgg_handle_Buffer1 = []
+nonAgg_handle_Buffer2 = []
+nonAgg_handle_Buffer3 = []
+
 var sum = function(x,y){ 	return x + y;};　　//求和函数
 var square = function(x){	 return x * x;};　　//数组中每个元素求它的平方
 
@@ -46,23 +53,29 @@ function endRecordTime_Of(){
 		
 		console.log("TO1_Buffer : " + TO1_Buffer);
 		console.log("TO2_Buffer : " + TO2_Buffer);
-		console.log("TO3_Buffer : " + TO3_Buffer);
+		//console.log("TO3_Buffer : " + TO3_Buffer);
 		
 		console.log("Handle1_Buffer : " + Handle1_Buffer);
 		console.log("Handle2_Buffer : " + Handle2_Buffer);
-		console.log("Handle3_Buffer : " + Handle3_Buffer);
-		console.log("Handle4_Buffer : " + Handle4_Buffer);
+		//console.log("Handle3_Buffer : " + Handle3_Buffer);
+		//console.log("Handle4_Buffer : " + Handle4_Buffer);
+		
+		console.log("nonAgg_handle_Buffer3 : " + nonAgg_handle_Buffer3);
 		
 		
 		
 		stddevMean(TO1_Buffer);
 		stddevMean(TO2_Buffer);
-		stddevMean(TO3_Buffer);
+		//stddevMean(TO3_Buffer);
 		
 		stddevMean(Handle1_Buffer);
 		stddevMean(Handle2_Buffer);
-		stddevMean(Handle3_Buffer);
-		stddevMean(Handle4_Buffer);
+		//stddevMean(Handle3_Buffer);
+		//stddevMean(Handle4_Buffer);
+		
+		stddevMean(nonAgg_handle_Buffer3)
+		
+		
 		
 		console.log("result : " + result);
 		/*
