@@ -43,7 +43,8 @@ function endRecordTime_Of(){
 	setTimeout(function(){
 		
 		//console.log("要統計標準差了喔");
-		
+		if(ID != 0)
+			Handle3_Buffer.push(0);
 		
 		console.log("TO1_Buffer : " + TO1_Buffer);
 		console.log("TO2_Buffer : " + TO2_Buffer);
