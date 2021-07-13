@@ -8,7 +8,7 @@ app.post('/Vote', function(req, res) {
 			handle_TO3 = new Date().getTime();
 
 		thisLockset.push(req.body);		//將票存到lockset
-		
+		postProcess.isCommit(thisLockset);
 		/*
 		//要回傳給學弟的BlockHash
 		fbBh = (req.body.vote == null) ? [] : req.body.vote.blockHash;
@@ -36,10 +36,13 @@ app.post('/Vote', function(req, res) {
 			myMain.newRound(istimeout, req.body.round, req);
 		}
 		*/
-		//else{
-			postProcess.isCommit(req.body.voteCollection);
-		//}
 		
+		
+		/*
+		else{
+			postProcess.isCommit(req.body.voteCollection);
+		}
+		*/
 		
 	}
 	
