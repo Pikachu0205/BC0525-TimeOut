@@ -43,6 +43,8 @@ function toAaggregateDeliver(height, round, blockHash){
 	data = signature(data);
 	lastRoundVote = data.vote;
 	
+	console.log("Deliver aggregate : " + aggregate);
+	
 	mesDeliver(aggregate, data);
 }
 
