@@ -40,17 +40,20 @@ function isCommit(voteCollection){	//data = voteCollection[]
 				//myMain.newHeight();
 			//}
 			
+			var endVote_TO = new Date().getTime();
+			nonAgg_handle_Buffer3.push(endVote_TO - handle_TO3);
+			
+			console.log("commit好了");
 		}
 		
 	}
 	
-	var endVote_TO = new Date().getTime();
-	nonAgg_handle_Buffer3.push(endVote_TO - handle_TO3);
+	
 	
 	//var endHandle_TO4 = new Date().getTime();
 	//Handle4_Buffer.push(endHandle_TO4 - handle_TO4);
 	
-	console.log("commit好了");
+	
 	//		=====測timeout的=====		//	另一個要改的地方在timeOut.js之timeOutStart
 	myDeliver.ReadyDeliver(ID, 0);
 }

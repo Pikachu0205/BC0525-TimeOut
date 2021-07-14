@@ -6,7 +6,9 @@ app.post('/Vote', function(req, res) {
 		
 		if(thisLockset.length == 0)
 			handle_TO3 = new Date().getTime();
-
+		
+		console.log("現在 " + thisLockset.length + " 張票了");
+		
 		thisLockset.push(req.body);		//將票存到lockset
 		postProcess.isCommit(thisLockset);
 		/*
