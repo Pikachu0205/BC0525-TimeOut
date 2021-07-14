@@ -46,6 +46,8 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			nonAgg_handle_Buffer3.push(endVote_TO - handle_TO3);
 			
 			console.log("commit好了");
+			
+			myDeliver.ReadyDeliver(ID, 0);
 		}
 		
 	}
@@ -57,7 +59,7 @@ function isCommit(voteCollection){	//data = voteCollection[]
 	
 	
 	//		=====測timeout的=====		//	另一個要改的地方在timeOut.js之timeOutStart
-	myDeliver.ReadyDeliver(ID, 0);
+	//myDeliver.ReadyDeliver(ID, 0);
 }
 
 
