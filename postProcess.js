@@ -10,8 +10,8 @@ function getBlock(block){
 	}
 	
 	if(!isVoteLock){
-		myDeliver.toAaggregateDeliver(height, round, blockBody.blockHash);
-		//myDeliver.VoteDeliver(height, round);
+		//myDeliver.toAaggregateDeliver(height, round, blockBody.blockHash);
+		myDeliver.VoteDeliver(height, round);
 	}
 		
 }
