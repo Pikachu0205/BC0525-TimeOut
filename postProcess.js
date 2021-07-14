@@ -41,6 +41,8 @@ function isCommit(voteCollection){	//data = voteCollection[]
 			//}
 			
 			var endVote_TO = new Date().getTime();
+			console.log("handle_TO3 : " + handle_TO3);
+			console.log("endVote_TO : " + endVote_TO);
 			nonAgg_handle_Buffer3.push(endVote_TO - handle_TO3);
 			
 			console.log("commit好了");
