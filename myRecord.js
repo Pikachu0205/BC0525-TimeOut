@@ -118,8 +118,8 @@ function stddevMean(TObuffer){
 	var stddev = ( Math.sqrt(deviations.map(square).reduce(sum)/(TObuffer.length-1)) ).toFixed(2);
 	
 	
-	result.push(parseInt(mean));
-	result.push(parseInt(stddev));
+	result.push(mean);
+	result.push(stddev);
 	
 	
 	//console.log("平均值：" + mean);
